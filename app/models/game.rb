@@ -21,6 +21,11 @@ class Game
 		@player1.nil?
 	end
 
+	def add_player1_choice(choice)
+		@p1_choice = choice
+	end
+
+
 end
 
 # 	def player2_move

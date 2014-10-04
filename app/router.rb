@@ -16,22 +16,35 @@ class Play < Sinatra::Base
   end
 
   post '/new_player' do
-   	GAME.add_player Player.new(params[:name])
+  	PLAYER = Player.new(params[:name])
+   	GAME.add_player PLAYER
    	session[:me] = params[:name]
    	erb :index
    	redirect '/'
   end
 
  	post '/new_game' do
- 	# 	puts "*******"
- 	# 	puts session.inspect
-		# puts "*******"
-		# puts GAME.inspect
   	@name = session[:me]
   	erb :game
+  end
+
+  post '/result' do
+  	@choice = params[:choice]
+  	session[:choice] = @choice
+  	PLAYER.choice = @choice
   end
 
 
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
+
+# Notes
+# puts "=====" *20
+# puts session.inspect
+# puts "=====" *20
+# puts @choice.inspect
+# puts "=====" *20
+# puts PLAYER.inspect
+# puts "=====" *20
+# puts GAME.inspect

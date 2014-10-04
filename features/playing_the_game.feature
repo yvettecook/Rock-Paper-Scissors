@@ -17,3 +17,5 @@ Feature: Playing the game
 		And click 'Fight!'
 		Then I should go to the outcome page
 
+
+
