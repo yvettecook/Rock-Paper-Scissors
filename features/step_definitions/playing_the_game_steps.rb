@@ -15,14 +15,14 @@ Then(/^I see a welcome$/) do
   expect(page).to have_content('Yvette, make your choice:')
 end
 
-# When(/^I choose 'rock'$/) do
-#  choose("choice_rock")
-# end
+When(/^I choose 'rock'$/) do
+ choose("choice_rock")
+end
 
-# When(/^click 'Fight!'$/) do
-#   click_button('Fight!')
-# end
+When(/^click 'Fight!'$/) do
+  click_button('Fight!')
+end
 
-# Then(/^I should go to the outcome page$/) do
-#   expect(current_path).to eq('/result')
-# end
+Then(/^I should go to the outcome page$/) do
+  expect(current_path).to eq('/result')
+end
