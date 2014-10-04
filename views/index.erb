@@ -1,9 +1,11 @@
 <h1>Rock Paper Scissors: The Game</h1>
 
 <% if @name %>
-	<h3>Welcome <%=@name%>, let's get started</h3><br>
-	<form action='/new_game' method="post">
-		<input type ="submit" value="Play"
+	<p>Welcome <%=@name%>, let's get started<br>
+<form action='/new_game' method="post">
+	<input type ="submit" value="Play"> 
+</form>
+</p>
 <% end %>
 
 <form action='/new_player' method="post">

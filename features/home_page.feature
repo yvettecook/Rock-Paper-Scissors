@@ -15,4 +15,4 @@ Feature: Checking out the game
 		Given I am on the homepage
 		And sign in to play
 		And click 'Play'
-		Then I should become a new player
+		Then I should go to new_game page

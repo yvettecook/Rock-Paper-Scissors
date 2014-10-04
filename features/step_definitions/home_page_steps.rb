@@ -15,12 +15,12 @@ Then(/^I should see a welcome message$/) do
   expect(page).to have_content("Welcome Yvette, let's get started")
 end
 
-
 Given(/^click 'Play'$/) do
   click_button 'Play'
 end
 
-Then(/^I should become a new player$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should go to new_game page$/) do
+  expect(page).to have_content("Let the game begin ...")
 end
+
 

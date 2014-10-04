@@ -1,17 +1,24 @@
 require 'sinatra/base'
+require_relative './models/player'
 
 class Play < Sinatra::Base
 
 	set :views, Proc.new { File.join(root, "..", "views")}
+	enable :sessions
 
   get '/' do
     erb :index
   end
 
   post '/new_player' do
+  	session[:player1] = Player.new
+  	@player = session[:player1]
     @name = params[:name]
-    player1 = Player.new(name: @name)
    	erb :index
+  end
+
+ 	post '/new_game' do
+  	erb :game
   end
 
   # start the server if ruby file executed directly
