@@ -10,6 +10,7 @@ class Play < Sinatra::Base
 
   post '/new_player' do
     @name = params[:name]
+    player1 = Player.new(name: @name)
    	erb :index
   end
 

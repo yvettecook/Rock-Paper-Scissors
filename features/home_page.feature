@@ -11,3 +11,8 @@ Feature: Checking out the game
 		And sign in to play
 		Then I should see a welcome message
 
+	Scenario: Starting the game
+		Given I am on the homepage
+		And sign in to play
+		And click 'Play'
+		Then I should become a new player
