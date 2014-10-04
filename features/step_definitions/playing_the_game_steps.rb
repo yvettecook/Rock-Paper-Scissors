@@ -23,6 +23,7 @@ When(/^click 'Fight!'$/) do
   click_button('Fight!')
 end
 
-Then(/^I should go to the outcome page$/) do
+Then(/^I should go to the result page$/) do
   expect(current_path).to eq('/result')
 end
+

@@ -15,7 +15,8 @@ Feature: Playing the game
 		Given I have signed in and am on the game page
 		When I choose 'rock'
 		And click 'Fight!'
-		Then I should go to the outcome page
+		Then I should go to the result page
 
+	
 
 

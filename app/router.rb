@@ -3,6 +3,7 @@ require_relative './models/player'
 require_relative './models/game'
 
 
+
 class Play < Sinatra::Base
 
 	GAME = Game.new
@@ -29,15 +30,19 @@ class Play < Sinatra::Base
   end
 
   post '/result' do
+  	@name = session[:me]
   	@choice = params[:choice]
   	session[:choice] = @choice
   	PLAYER.choice = @choice
+  	erb :result
   end
 
 
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
+
+
 
 # Notes
 # puts "=====" *20

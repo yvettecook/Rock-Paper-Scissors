@@ -1,11 +1,10 @@
 class Game
 
-	attr_reader :player1, :player2, :choices
+	attr_reader :player1, :player2
 
 	def initialize
 		@player1 = nil
 		@player2 = nil
-		# @choices = ['rock', 'paper', 'scissors']
 	end
 
 	def players
@@ -21,8 +20,29 @@ class Game
 		@player1.nil?
 	end
 
-	def add_player1_choice(choice)
-		@p1_choice = choice
+	def choices
+	 	p1 = player1.choice
+		p2 = player2.choice
+		result(p1,p2)
+	end
+
+	def result(a,b)
+		case 
+			when a == b 
+				return 'draw'
+			when a == 'rock'
+				return "#{player1} wins" if b == 'scissors' 
+				return "#{player2} wins" if b == 'paper'
+			when a == 'paper' 
+				return "#{player1} wins" if b == 'rock'
+				return "#{player2} wins" if b == 'scissors'
+			when a == 'scissors' 
+				return "#{player1} wins" if b == 'paper'
+				return "#{player2} wins" if b == 'rock'
+			else
+				"wtf"
+			end
+		
 	end
 
 
@@ -36,30 +56,6 @@ end
 # 		return choices.sample
 # 	end
 
-# 	def moves
-# 	 	p1 = player1_move
-# 		p2 = player2_move
-# 		result(p1,p2)
-# 	end
-
-# 	def result(a,b)
-# 		case 
-# 			when a == b 
-# 				return 'draw'
-# 			when a == 'rock'
-# 				return "#{player1} wins" if b == 'scissors' 
-# 				return "#{player2} wins" if b == 'paper'
-# 			when a == 'paper' 
-# 				return "#{player1} wins" if b == 'rock'
-# 				return "#{player2} wins" if b == 'scissors'
-# 			when a == 'scissors' 
-# 				return "#{player1} wins" if b == 'paper'
-# 				return "#{player2} wins" if b == 'rock'
-# 			else
-# 				"wtf"
-# 			end
-		
-# 	end
-
+#
 
 
