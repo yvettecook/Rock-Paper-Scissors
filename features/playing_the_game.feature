@@ -4,11 +4,10 @@ Feature: Playing the game
 	And now want to play the game
 
 	Scenario: Choice of weapon
-		Given I am on the game page
+		Given I have signed in and am on the game page
 		Then I see three choices
 
-	Scenario: Choosing a weapon
-		Given I am on the game page
-		When I choose 'rock'
-		And click 'Fight!'
-		Then I should go to the outcome page
+	Scenario: Choice of weapon
+		Given I have signed in and am on the game page
+		Then I see a welcome
+
