@@ -1,15 +1,31 @@
+<head> 
+	<meta http-equiv="refresh" content="10">
+</head>
+
 <h1>Rock Paper Scissors: The Game</h1>
 
-<% if @name %>
-	<p>Welcome <%=@name%>, let's get started<br>
-<form action='/new_game' method="post">
-	<input type ="submit" value="Play"> 
-</form>
-</p>
+<% if GAME.has_both_players?%>
+	<p>Right <%=@name%>, let's get started<br>
+		<form action='/new_game' method="post">
+			<input type ="submit" value="Play"> 
+		</form>
+	</p>
+
+<% elsif @name %>
+	<p>Welcome <%=@name%>, just waiting for Player 2 ...</p>
+	
+<% else %>
+	<form action='/new_player' method="post">
+		Name:<input type="text" name="name">
+		<input type="submit" value="Sign In">
+	</form>
+
 <% end %>
 
-<form action='/new_player' method="post">
-	Name:<input type="text" name="name">
-		<input type="submit" value="Sign In">
-</form>
-
+<footer>
+	Navigation<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/rules">Rules</a></li>
+		<li><a href="/new_game">New Game</a></li>
+	</ul>
+</footer>

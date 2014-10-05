@@ -1,11 +1,29 @@
-<h2>Let the game begin ...</h2>
+<head>
+	<h4>Scores</h4>
+		<p><%=PLAYER1.name%> (<%=PLAYER1.score%>)<br>
+			<%=PLAYER2.name%> (<%=PLAYER2.score%>)
+		</p>
+</head>
 
-<h3><%=@name%>, make your choice:</h3>
+<main>
+	<h2>Let the game begin ...</h2>
 
-<form action='/result' method="post">
-	<input type="radio" name="choice" value="rock" id="choice_rock">rock<br>
-	<input type="radio" name="choice" value="paper">paper<br>
-	<input type="radio" name="choice" value="scissors">scissors<br>
-<br>
-	<input type="submit" value="Fight!">
-</form>
+	<h3><%=@name%>, make your choice:</h3>
+
+	<form action='/result' method="post">
+		<input type="radio" name="choice" value="rock" id="choice_rock">rock<br>
+		<input type="radio" name="choice" value="paper">paper<br>
+		<input type="radio" name="choice" value="scissors">scissors<br>
+	<br>
+		<input type="submit" value="Fight!">
+	</form>
+</main>
+
+<footer>
+	Navigation<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/rules">Rules</a></li>
+		<li><a href="/new_game">New Game</a></li>
+	</ul>
+</footer>
+

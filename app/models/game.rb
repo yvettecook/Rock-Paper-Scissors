@@ -1,6 +1,6 @@
 class Game
 
-	attr_reader :player1, :player2
+	attr_accessor :player1, :player2
 
 	def initialize
 		@player1 = nil
@@ -11,37 +11,48 @@ class Game
 		[@player1, @player2]
 	end
 
-	def add_player(player)
-		return @player2 = player unless has_player?
-		@player1 = player
-	end
-
 	def has_player?
 		@player1.nil?
 	end
 
+	def has_both_players?
+		!@player1.nil? && !@player2.nil?
+	end
+
 	def choices
-	 	p1 = player1.choice
-		p2 = player2.choice
-		result(p1,p2)
+		result(player1.choice,player2.choice)
 	end
 
 	def result(a,b)
 		case 
 			when a == b 
-				return 'draw'
+			 'draw'
 			when a == 'rock'
-				return "#{player1.name} wins" if b == 'scissors' 
-				return "#{player2.name} wins" if b == 'paper'
+				b == 'scissors' ? player1_win : player2_win 
 			when a == 'paper' 
-				return "#{player1.name} wins" if b == 'rock'
-				return "#{player2.name} wins" if b == 'scissors'
+				b == 'rock' ? player1_win : player2_win 				
 			when a == 'scissors' 
-				return "#{player1.name} wins" if b == 'paper'
-				return "#{player2.name} wins" if b == 'rock'
+				b == 'paper' ? player1_win : player2_win 
 			else
 				"wtf"
 			end
+	end
+
+	def player1_win
+		@player1.win
+		@player2.lose
+		return "#{player1.name} wins"
+	end
+
+	def player2_win
+		player2.win
+		player1.lose
+		return "#{player2.name} wins"
+	end
+
+	def new_round
+		player1.choice = nil
+		player2.choice = nil
 	end
 
 

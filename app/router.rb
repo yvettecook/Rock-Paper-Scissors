@@ -17,12 +17,12 @@ class Play < Sinatra::Base
   post '/new_player' do
     if GAME.has_player?
     	PLAYER1 = Player.new(params[:name])
-    	GAME.add_player PLAYER1
+    	GAME.player1 = PLAYER1
      	session[:me] = params[:name]
       session[:id] = 1
     else
       PLAYER2 = Player.new(params[:name])
-      GAME.add_player PLAYER2
+      GAME.player2 = PLAYER2
       session[:me] = params[:name]
       session[:id] = 2
     end
@@ -35,6 +35,11 @@ class Play < Sinatra::Base
   	erb :game
   end
 
+  get '/new_game' do
+    @name = session[:me]
+    erb :game
+  end
+
   post '/result' do
     @choice = params[:choice]
     session[:id] == 1 ? PLAYER1.choice = params[:choice] :PLAYER2.choice = params[:choice]
@@ -42,8 +47,16 @@ class Play < Sinatra::Base
   end
 
   get '/result_page' do
-    
   	erb :result
+  end
+
+  post '/again' do
+    GAME.new_round
+    redirect '/new_game'
+  end
+
+  get '/rules' do
+
   end
 
 
