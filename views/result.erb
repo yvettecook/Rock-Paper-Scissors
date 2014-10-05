@@ -1,4 +1,13 @@
-<h3><%=@player1_name%> choose: <%=@player1_choice%></h3>
-<h3><%=@player2_name%> choose: <%=@player2_choice%></h3>
 
-<h2><%=@result%></h2>
+<%if GAME.player1.choice != nil && GAME.player2.choice != nil %>
+
+	<h3><%=GAME.player1.name%> choose: <%=GAME.player1.choice%></h3>
+	<h3><%=GAME.player2.name%> choose: <%=GAME.player2.choice%></h3>
+
+	<h2><%=GAME.choices%></h2>
+
+<%else%>
+
+	<p>Waiting for you opponent ... Please refresh</p>
+
+<%end%>
