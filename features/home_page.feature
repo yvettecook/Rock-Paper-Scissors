@@ -14,5 +14,6 @@ Feature: Checking out the game
 	Scenario: Starting the game
 		Given I am on the homepage
 		And sign in to play
+		Then I should see a holding message
 		And click 'Play'
 		Then I should go to new_game page

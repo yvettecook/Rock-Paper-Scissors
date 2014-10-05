@@ -12,7 +12,7 @@ Given(/^sign in to play$/) do
 end
 
 Then(/^I should see a welcome message$/) do
-  expect(page).to have_content("Welcome Yvette, let's get started")
+  expect(page).to have_content("Right Yvette, let's get started")
 end
 
 Given(/^click 'Play'$/) do
