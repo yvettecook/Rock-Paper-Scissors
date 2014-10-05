@@ -2,8 +2,6 @@ require 'sinatra/base'
 require_relative './models/player'
 require_relative './models/game'
 
-
-
 class Play < Sinatra::Base
 
 	GAME = Game.new
@@ -13,14 +11,22 @@ class Play < Sinatra::Base
 
   get '/' do
   	@name = session[:me]
-    erb :index
+  	erb :index
   end
 
   post '/new_player' do
-  	PLAYER = Player.new(params[:name])
-   	GAME.add_player PLAYER
-   	session[:me] = params[:name]
-   	erb :index
+    if GAME.has_player?
+    	PLAYER1 = Player.new(params[:name])
+    	GAME.add_player PLAYER1
+     	session[:me] = params[:name]
+      session[:id] = 1
+    else
+      PLAYER2 = Player.new(params[:name])
+      GAME.add_player PLAYER2
+      session[:me] = params[:name]
+      session[:id] = 2
+    end
+  	erb :index
    	redirect '/'
   end
 
@@ -30,10 +36,21 @@ class Play < Sinatra::Base
   end
 
   post '/result' do
-  	@name = session[:me]
-  	@choice = params[:choice]
-  	session[:choice] = @choice
-  	PLAYER.choice = @choice
+    @choice = params[:choice]
+    if session[:id] == 1 
+      PLAYER1.choice = params[:choice]
+    else
+      PLAYER2.choice = params[:choice]
+    end
+  	redirect '/result_page'
+  end
+
+  get '/result_page' do
+  	@player1_name = GAME.player1.name
+  	@player1_choice = GAME.player1.choice
+  	@player2_name = GAME.player2.name
+  	@player2_choice = GAME.player2.choice
+    @result = GAME.choices
   	erb :result
   end
 
@@ -42,14 +59,3 @@ class Play < Sinatra::Base
   run! if app_file == $0
 end
 
-
-
-# Notes
-# puts "=====" *20
-# puts session.inspect
-# puts "=====" *20
-# puts @choice.inspect
-# puts "=====" *20
-# puts PLAYER.inspect
-# puts "=====" *20
-# puts GAME.inspect

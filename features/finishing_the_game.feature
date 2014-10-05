@@ -5,5 +5,6 @@ Feature: Finishing the game
 
 	Scenario: Viewing results page
 		Given I have signed on and choosen a weapon
+		When I have a fake opponent
 		Then I should see my choice
 		And I should see my opponents choice

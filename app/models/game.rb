@@ -31,18 +31,17 @@ class Game
 			when a == b 
 				return 'draw'
 			when a == 'rock'
-				return "#{player1} wins" if b == 'scissors' 
-				return "#{player2} wins" if b == 'paper'
+				return "#{player1.name} wins" if b == 'scissors' 
+				return "#{player2.name} wins" if b == 'paper'
 			when a == 'paper' 
-				return "#{player1} wins" if b == 'rock'
-				return "#{player2} wins" if b == 'scissors'
+				return "#{player1.name} wins" if b == 'rock'
+				return "#{player2.name} wins" if b == 'scissors'
 			when a == 'scissors' 
-				return "#{player1} wins" if b == 'paper'
-				return "#{player2} wins" if b == 'rock'
+				return "#{player1.name} wins" if b == 'paper'
+				return "#{player2.name} wins" if b == 'rock'
 			else
 				"wtf"
 			end
-		
 	end
 
 

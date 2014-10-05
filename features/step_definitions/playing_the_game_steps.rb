@@ -24,6 +24,6 @@ When(/^click 'Fight!'$/) do
 end
 
 Then(/^I should go to the result page$/) do
-  expect(current_path).to eq('/result')
+  expect(current_path).to eq('/result_page')
 end
 
