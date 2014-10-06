@@ -47,11 +47,17 @@ class Play < Sinatra::Base
   end
 
   get '/result_page' do
+    puts "-----" *20
+    puts GAME.inspect
   	erb :result
   end
 
-  post '/again' do
+  get '/again' do
+    puts "-----" *20
+    puts GAME.inspect
     GAME.new_round
+     puts "-----" *20
+    puts GAME.inspect
     redirect '/new_game'
   end
 

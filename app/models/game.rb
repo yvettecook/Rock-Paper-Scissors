@@ -26,7 +26,7 @@ class Game
 	def result(a,b)
 		case 
 			when a == b 
-			 'draw'
+			 draw
 			when a == 'rock'
 				b == 'scissors' ? player1_win : player2_win 
 			when a == 'paper' 
@@ -48,6 +48,12 @@ class Game
 		player2.win
 		player1.lose
 		return "#{player2.name} wins"
+	end
+
+	def draw
+		player1.draw
+		player2.draw
+		return 'draw'
 	end
 
 	def new_round
