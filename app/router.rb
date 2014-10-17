@@ -43,8 +43,12 @@ class Play < Sinatra::Base
   post '/result' do
     @choice = params[:choice]
     session[:id] == 1 ? PLAYER1.choice = params[:choice] :PLAYER2.choice = params[:choice]
+    if GAME.player1.choice != nil && GAME.player2.choice != nil
+      GAME.choices
+    end
   	redirect '/result_page'
   end
+
 
   get '/result_page' do
     puts "-----" *20

@@ -6,12 +6,12 @@
 		</p>
 </head>
 
-<%if GAME.player1.choice != nil && GAME.player2.choice != nil %>
+<% if GAME.player1.choice != nil && GAME.player2.choice %>
 
 	<h3><%=GAME.player1.name%> choose: <%=GAME.player1.choice%></h3>
 	<h3><%=GAME.player2.name%> choose: <%=GAME.player2.choice%></h3>
 
-	<h2><%=GAME.choices%></h2>
+	<h2><%=%></h2>
 
 	<form action='/again' method='get'>
 		<input type="submit" value="Play again">
