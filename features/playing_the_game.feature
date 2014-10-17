@@ -8,7 +8,6 @@ Feature: Playing the game
 		Then I see a welcome
 
 	Scenario: Choice of weapon
-		Given I have signed in and am on the game page
 		Then I see three choices
 
 	Scenario: Choosing a weapon

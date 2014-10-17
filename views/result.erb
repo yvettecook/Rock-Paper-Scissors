@@ -1,9 +1,10 @@
 <head>
 	
 	<h4>Scores</h4>
-		<p><%=PLAYER1.name%> (<%=PLAYER1.score%>)<br>
-			<%=PLAYER2.name%> (<%=PLAYER2.score%>)
-		</p>
+	<p><%=PLAYER1.name%> (<%=PLAYER1.score%>)<br>
+		 <%=PLAYER2.name%> (<%=PLAYER2.score%>)
+	</p>
+
 </head>
 
 <% if GAME.player1.choice != nil && GAME.player2.choice %>
@@ -11,7 +12,7 @@
 	<h3><%=GAME.player1.name%> choose: <%=GAME.player1.choice%></h3>
 	<h3><%=GAME.player2.name%> choose: <%=GAME.player2.choice%></h3>
 
-	<h2><%=%></h2>
+	<h2>Result:<%=@result%></h2>
 
 	<form action='/again' method='get'>
 		<input type="submit" value="Play again">
@@ -26,7 +27,6 @@
 <footer>
 	Navigation<ul>
 		<li><a href="/">Home</a></li>
-		<li><a href="/rules">Rules</a></li>
 		<li><a href="/new_game">New Game</a></li>
 	</ul>
 </footer>
